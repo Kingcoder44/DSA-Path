@@ -1,0 +1,18 @@
+class Solution {
+    public void duplicateZeros(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == 0) {
+                shiftFrom(arr, i);
+                i++;  
+            }
+        }
+    }
+    
+    public void shiftFrom(int[] arr, int index) {
+        // Start shifting elements from the end of the array
+        for (int i = arr.length - 1; i > index; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[index + 1] = 0;  // Duplicate the zero at index + 1
+    }
+}
