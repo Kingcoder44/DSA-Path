@@ -1,0 +1,24 @@
+import java.util.*;
+
+class Solution {
+    public int thirdMax(int[] nums) {
+        // Use a TreeSet to store unique numbers in sorted order
+        TreeSet<Integer> set = new TreeSet<>();
+        
+        // Add each number to the set
+        for (int num : nums) {
+            set.add(num);
+            // If the size of the set exceeds 3, remove the smallest element
+            if (set.size() > 3) {
+                set.pollFirst();
+            }
+        }
+        
+        // If the set has less than 3 elements, return the maximum element
+        if (set.size() < 3) {
+            return set.last();
+        } else {
+            return set.first();
+        }
+    }
+}
