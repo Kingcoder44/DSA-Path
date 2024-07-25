@@ -1,3 +1,4 @@
+//Time Complexity=O(nlogn)+O(n)=O(nlogn)
 class Solution {
     public int[][] merge(int[][] a) {
         //check if sorted or not on basis of lower bound
