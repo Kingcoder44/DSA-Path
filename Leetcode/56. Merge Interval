@@ -1,0 +1,24 @@
+class Solution {
+    public int[][] merge(int[][] a) {
+        //check if sorted or not on basis of lower bound
+        Arrays.sort( a, (x,y)-> Integer.compare(x[0],y[0]));
+        //to carry merged intervals
+        //we will use linkedlist
+        LinkedList<int []> merged = new LinkedList<>();
+        for(int[] intervals : a ){
+            //no overlapping
+            //compare last end value to current value
+            if(merged.isEmpty() || merged.getLast()[1]<intervals[0])
+            {
+                merged.add(intervals);
+            }
+            else
+            {
+                merged.getLast()[0]=Math.min(merged.getLast()[0],intervals[0]);
+                merged.getLast()[1]=Math.max(merged.getLast()[1],intervals[1]);
+            }
+
+        }
+        return merged.toArray(new int[merged.size()][]);
+    }
+}
