@@ -1,0 +1,21 @@
+class Solution {
+    public int majorityElement(int[] a) 
+    {
+        int majEle=a[0],majC=1;
+        for(int i=1;i<a.length;i++)
+        {
+            if(a[i]==majEle)
+            majC++;
+            else{
+                majC--;
+                if(majC==0)
+                {
+                    majEle=a[i];
+                    majC=1;
+                }
+            }
+        }
+        return majEle;
+    }
+    
+}
