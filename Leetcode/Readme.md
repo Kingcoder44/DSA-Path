@@ -1,4 +1,3 @@
-Question Link in Extended readme of each solution file
 # LeetCode Solutions
 
 Welcome to my LeetCode Solutions repository! This repository contains my solutions to various LeetCode problems, organized by problem number for easy reference.
