@@ -32,6 +32,6 @@ This repository is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For any questions or feedback, you can reach me at [your-email@example.com](mailto:skushagra645@example.com).
+For any questions or feedback, you can reach me at [skushagra645@example.com](mailto:skushagra645@example.com).
 
 Happy coding!
