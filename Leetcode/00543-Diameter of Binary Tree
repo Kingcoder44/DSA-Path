@@ -1,0 +1,16 @@
+class Solution {
+  public int diameterOfBinaryTree(TreeNode root) {
+        int d[] = new int[1]; //we take an array and not a vairbale because we are passing it as parameter and variable cant be updated if passede as parameter as Java is call by value.
+        height(root,d);
+        return d[0];
+    }
+    public int height(TreeNode root, int d[])
+    {
+        if(root==null)
+         return 0;
+        int ldepth= height(root.left,d);
+        int rdepth=  height(root.right,d);
+         d[0]=Math.max(d[0],ldepth+rdepth);
+        return Math.max(ldepth,rdepth)+1;
+    }
+}
