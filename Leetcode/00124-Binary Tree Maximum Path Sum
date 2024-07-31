@@ -1,0 +1,51 @@
+class Solution {
+    int maxSum = Integer.MIN_VALUE;
+
+    public int maxPathSum(TreeNode root) {
+        maxSums(root);
+        return maxSum;
+    }
+
+    private int maxSums(TreeNode root) {
+        if (root == null)
+            return 0;
+
+        int ld = Math.max(maxSums(root.left), 0); // Ensure non-negative contributions
+        int rd = Math.max(maxSums(root.right), 0); // Ensure non-negative contributions
+
+        maxSum = Math.max(maxSum, ld + rd + root.val);
+
+        return root.val + Math.max(ld, rd);
+    }
+}
+
+
+*Approach Explanation
+The goal is to find the maximum path sum in a binary tree. A path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root.
+
+To solve this problem, we use a recursive approach. We define a helper method maxSums that calculates the maximum path sum that can be obtained from the current node by considering its left and right subtrees.
+
+Here's the step-by-step breakdown of the approach:
+
+Initialization:
+
+We initialize a variable maxSum to Integer.MIN_VALUE to keep track of the highest path sum encountered during the traversal.
+Recursive Method:
+
+The method maxSums is a recursive function that calculates the maximum path sum for the given subtree rooted at root.
+Base Case:
+
+If the current node (root) is null, it returns 0. This is the base case of our recursion.
+Recursive Calls:
+
+We recursively call maxSums for the left and right children of the current node to get the maximum path sums for the left (ld) and right (rd) subtrees.
+Non-negative Contributions:
+
+To ensure that only non-negative path sums are considered (since including negative sums could reduce the overall path sum), we take the maximum of the recursive result and 0: Math.max(maxSums(root.left), 0) and Math.max(maxSums(root.right), 0).
+Update maxSum:
+
+We update maxSum to the maximum of its current value and the sum of the current node's value and the non-negative contributions from its left and right subtrees: maxSum = Math.max(maxSum, ld + rd + root.val).
+Return Value:
+
+The method returns the current node's value plus the maximum of the non-negative contributions from its left and right subtrees: return root.val + Math.max(ld, rd).
+This ensures that we keep track of the maximum path sum encountered during the traversal of the tree.*
