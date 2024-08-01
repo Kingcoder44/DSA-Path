@@ -1,0 +1,17 @@
+class Solution {
+    public boolean hasPathSum(TreeNode root,int targetSum) {
+       return checkSum(root, 0,targetSum);
+    }
+    public boolean checkSum(TreeNode root, int currS,int k)
+    {
+        if(root == null) 
+        return false;
+         
+        currS+=root.val;
+        
+        if(root.left== null || root.right ==null)
+            return currS == k;
+         // Otherwise, check the left and right subtrees
+        return (checkSum(root.left,currS,k)||checkSum(root.right,currS, k));
+    }
+}
